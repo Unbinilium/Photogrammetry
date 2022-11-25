@@ -5,8 +5,8 @@
 //  Created by Unbinilium on 11/21/22.
 //
 
-import SwiftUI
 import UniformTypeIdentifiers
+import SwiftUI
 
 struct OnDropDelegate: DropDelegate {
     @Binding var applicationViewState: ApplicationViewState

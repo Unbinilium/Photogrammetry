@@ -7,9 +7,9 @@
 
 import os
 import Foundation
+import UniformTypeIdentifiers
 import AppKit
 import RealityKit
-import UniformTypeIdentifiers
 
 class PhotogrammetryDelegate: ObservableObject {
     @Published var sessionRequestDetail: PhotogrammetrySession.Request.Detail = PhotogrammetrySession.Request.Detail()

@@ -5,8 +5,8 @@
 //  Created by Unbinilium on 11/22/22.
 //
 
-import AppKit
 import Foundation
+import AppKit
 
 extension URL {
     var isDirectory: Bool? {

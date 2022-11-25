@@ -5,10 +5,10 @@
 //  Created by Unbinilium on 11/24/22.
 //
 
-import AppKit
 import Foundation
-import RealityKit
 import CoreGraphics
+import AppKit
+import RealityKit
 
 class ARContainerViewDelegate: ARView, ObservableObject {
     private var screen: NSScreen = NSScreen()
@@ -38,7 +38,7 @@ class ARContainerViewDelegate: ARView, ObservableObject {
     // MARK: - Update Camera
     @MainActor private func updateCamera() {
         let translationTransform = Transform(scale: .one, rotation: simd_quatf(), translation: SIMD3<Float>(0, 0, self.modelRadius))
-        let rotationTransform = Transform(pitch: 0, yaw: modelEntityRotationAngle, roll: 0)
+        let rotationTransform = Transform(pitch: 0, yaw: self.modelEntityRotationAngle, roll: 0)
         let computedTransform = matrix_identity_float4x4 * rotationTransform.matrix * translationTransform.matrix
         self.cameraAnchor.transform = Transform(matrix: computedTransform)
     }
