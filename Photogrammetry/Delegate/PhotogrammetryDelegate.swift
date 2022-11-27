@@ -163,6 +163,6 @@ class PhotogrammetryDelegate: ObservableObject {
     
     private func createRequest() throws -> PhotogrammetrySession.Request {
         guard let outputModelUrl = outputModelUrl else { throw PhotogrammetryDelegateError(error: .missingOutputModelUrl) }
-        return PhotogrammetrySession.Request.modelFile(url: outputModelUrl, detail: self.sessionRequestDetail)
+        return PhotogrammetrySession.Request.modelFile(url: outputModelUrl, detail: sessionRequestDetail)
     }
 }

@@ -32,7 +32,7 @@ struct ExportView: View {
                 arContainerViewDelegate.loadModelEntity(modelEntityUrl: modelEntityUrl) { (result) in
                     if case .success(_) = result {
                         arContainerViewLoaded = true
-                        arContainerViewDelegate.modelEntitySpinning = true
+                        arContainerViewDelegate.modelEntitySpin = true
                     } else if case let .failure(error) = result {
                         arContainerViewInfo = error.localizedDescription
                     }
@@ -40,7 +40,7 @@ struct ExportView: View {
             }
             .onDisappear {
                 arContainerViewLoaded = false
-                arContainerViewDelegate.modelEntitySpinning = false
+                arContainerViewDelegate.modelEntitySpin = false
                 photogrammetryDelegate.removeOutputModel()
             }
             
