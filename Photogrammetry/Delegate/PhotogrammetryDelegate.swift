@@ -88,10 +88,8 @@ class PhotogrammetryDelegate: ObservableObject {
     
     // MARK: - Generate Model
     public func generateModel(completion: @escaping (_ result: Result<URL, Error>) -> ()) {
-        DispatchQueue.main.async {
-            self.sessionProgress = 0
-            self.sessionInfo = "Generating 3D Model..."
-        }
+        sessionProgress = 0
+        sessionInfo = String(localized: "delegate.generating.3dmodel")
         do {
             try self.checkAvailability()
             self.session = try createSession()
@@ -102,7 +100,7 @@ class PhotogrammetryDelegate: ObservableObject {
                         switch output {
                         case .processingComplete:
                             self.logger.log("Processing is complete")
-                            DispatchQueue.main.async { self.sessionInfo = "Processing is complete" }
+                            DispatchQueue.main.async { self.sessionInfo = String(localized: "delegate.processing.complete") }
                             
                         case .requestError(let request, let error):
                             self.logger.error("Request \(String(describing: request)) had an error: \(String(describing: error))")
@@ -123,7 +121,7 @@ class PhotogrammetryDelegate: ObservableObject {
                             
                         case .inputComplete:
                             self.logger.log("Data ingestion is complete, beginning processing...")
-                            DispatchQueue.main.async { self.sessionInfo = "Data ingestion is complete, beginning processing..." }
+                            DispatchQueue.main.async { self.sessionInfo = String(localized: "delegate.processing.begin") }
                             
                         case .invalidSample(let id, let reason):
                             self.logger.warning("Invalid Sample, id=\(id) reason=\"\(reason)\"")
@@ -133,11 +131,11 @@ class PhotogrammetryDelegate: ObservableObject {
                             
                         case .automaticDownsampling:
                             self.logger.warning("Automatic downsampling was applied")
-                            DispatchQueue.main.async { self.sessionInfo = "Automatic downsampling was applied" }
+                            DispatchQueue.main.async { self.sessionInfo = String(localized: "delegate.automatic.downsampling") }
                             
                         case .processingCancelled:
                             self.logger.warning("Request of the session request was cancelled")
-                            DispatchQueue.main.async { self.sessionInfo = "Request of the session request was cancelled" }
+                            DispatchQueue.main.async { self.sessionInfo = String(localized: "delegate.request.cancelled") }
                             
                         @unknown default:
                             self.logger.warning("Unhandled output message: \(String(describing: output))")

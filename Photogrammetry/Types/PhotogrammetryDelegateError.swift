@@ -32,28 +32,28 @@ extension PhotogrammetryDelegateError: LocalizedError {
     public var errorDescription: String? {
         switch self.error {
         case .unsupportedHardware:
-            return NSLocalizedString("This Mac does not meet the hardware requirement of Photogrammetry! ", comment: self.comment)
+            return NSLocalizedString("error.hardware.notsupport", comment: self.comment)
             
         case .missingInputFolderUrl:
-            return NSLocalizedString("Missing input image folder location! ", comment: self.comment)
+            return NSLocalizedString("error.input.imagefolder.missing", comment: self.comment)
             
         case .missingOutputModelUrl:
-            return NSLocalizedString("Missing output model location! ", comment: self.comment)
+            return NSLocalizedString("error.output.model.missing", comment: self.comment)
             
         case .failedOpenInputFolder:
-            return NSLocalizedString("Failed to get input folder location! ", comment: self.comment)
+            return NSLocalizedString("error.input.folder.open", comment: self.comment)
         
         case .failedCreateSession:
-            return NSLocalizedString("Failed on creating session ", comment: self.comment)
+            return NSLocalizedString("error.create.session", comment: self.comment)
             
         case .failedAccessSession:
-            return NSLocalizedString("Failed on accessing an uninitialized session! ", comment: self.comment)
+            return NSLocalizedString("error.access.session", comment: self.comment)
             
         case .failedCompleteRequest:
-            return NSLocalizedString("Failed on processing 3D model request, please check the input images and photogrammetry configurations! ", comment: self.comment)
+            return NSLocalizedString("error.complete.request", comment: self.comment)
             
         case .unexpectedRequestResult:
-            return NSLocalizedString("Encounter an unexpected request result! ", comment: self.comment)
+            return NSLocalizedString("error.unexpected.result", comment: self.comment)
         }
     }
 }

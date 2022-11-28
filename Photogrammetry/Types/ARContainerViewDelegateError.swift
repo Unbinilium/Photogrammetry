@@ -25,7 +25,7 @@ extension ARContainerViewDelegateError: LocalizedError {
     public var errorDescription: String? {
         switch self.error {
         case .failedLoadingEntity:
-            return NSLocalizedString("Failed on loading AR model entity! ", comment: self.comment)
+            return NSLocalizedString("error.failed.load.model.entity", comment: self.comment)
         }
     }
 }

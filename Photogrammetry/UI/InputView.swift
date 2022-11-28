@@ -16,8 +16,8 @@ struct InputView: View {
     var body: some View {
         VStack() {
             VStack (spacing: 5) {
-                Text("Drag and drop Image Folder")
-                Text("(A folder with 20~60 images is recommend)").font(.footnote)
+                Text(LocalizedStringKey("input.text.drag&drop"))
+                Text(LocalizedStringKey("input.text.drag&drop.hint")).font(.footnote)
             }
             .frame(width: 320, height: 280)
             .background(Color.gray.opacity(0.1))
@@ -26,9 +26,10 @@ struct InputView: View {
                 applicationViewState: $applicationViewState,
                 photogrammetryDelegate: photogrammetryDelegate))
             
-            Text("or") .italic()
+            Text(LocalizedStringKey("input.text.or"))
+                .italic()
             
-            Button("Open Image Folder") {
+            Button(LocalizedStringKey("input.button.open.imagefolder")) {
                 photogrammetryDelegate.openInputFolderPanel { (result) in
                     if case let .success(folderUrl) = result {
                         photogrammetryDelegate.inputFolderUrl = folderUrl
@@ -43,7 +44,7 @@ struct InputView: View {
         }
         .padding(.all, 20)
         .alert(openFolderAlertInfo, isPresented: $openFolderAlert) {
-            Button("OK", role: .cancel) {
+            Button(LocalizedStringKey("input.button.ok"), role: .cancel) {
                 openFolderAlertInfo.removeAll()
             }
         }

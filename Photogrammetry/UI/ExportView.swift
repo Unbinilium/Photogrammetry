@@ -26,7 +26,7 @@ struct ExportView: View {
             .cornerRadius(8)
             .onAppear {
                 guard let modelEntityUrl = photogrammetryDelegate.outputModelUrl else {
-                    arContainerViewInfo = "Model entity is missing for Preview"
+                    arContainerViewInfo = String(localized: "export.model.entity.missing")
                     return
                 }
                 arContainerViewDelegate.loadModelEntity(modelEntityUrl: modelEntityUrl) { (result) in
@@ -46,12 +46,12 @@ struct ExportView: View {
             }
             
             HStack {
-                Button("Process Again") { applicationViewState = .onInputView }
+                Button(LocalizedStringKey("export.button.process.again")) { applicationViewState = .onInputView }
                     .keyboardShortcut("r", modifiers: .command)
                 
                 Spacer()
                 
-                Button("Export USDZ Model") { photogrammetryDelegate.openExportModelPanel { _ in } }
+                Button(LocalizedStringKey("export.button.export.usdzmodel")) { photogrammetryDelegate.openExportModelPanel { _ in } }
                     .keyboardShortcut("e", modifiers: .command)
             }
             .frame(width: 320)

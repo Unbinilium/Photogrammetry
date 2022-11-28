@@ -16,14 +16,14 @@ struct ConfigurationView: View {
         VStack (alignment: .center, spacing: 15) {
             VStack (alignment: .leading, spacing: 5) {
                 Spacer()
-                Picker("Model Detail", selection: $photogrammetryDelegate.sessionRequestDetail) {
+                Picker(LocalizedStringKey("configuration.model.detail"), selection: $photogrammetryDelegate.sessionRequestDetail) {
                     ForEach(PhotogrammetrySession.Request.Detail.allCases, id: \.self) {
                         Text($0).tag(PhotogrammetrySession.Request.Detail.init($0))
                     }
                 }
                 .pickerStyle(.menu)
                 .padding([.leading, .trailing], 15)
-                Text("Detail of output model in terms of mesh size and texture size")
+                Text(LocalizedStringKey("configuration.model.detail.describe"))
                     .font(.footnote)
                     .padding([.leading, .trailing], 15)
                 Spacer()
@@ -36,36 +36,36 @@ struct ConfigurationView: View {
             VStack (alignment: .leading, spacing: 5) {
                 Spacer()
                 HStack {
-                    Text("Object Masking")
+                    Text(LocalizedStringKey("configuration.object.masking"))
                     Spacer()
-                    Toggle("Object Masking", isOn: $photogrammetryDelegate.sessionConfiguration.isObjectMaskingEnabled)
+                    Toggle(LocalizedStringKey("configuration.object.masking"), isOn: $photogrammetryDelegate.sessionConfiguration.isObjectMaskingEnabled)
                         .toggleStyle(.switch)
                         .labelsHidden()
                 }
                 .padding([.leading, .trailing], 15)
-                Text("Whether RealityKit uses the provided masks to separate the foreground object from the background")
+                Text(LocalizedStringKey("configuration.object.masking.describe"))
                     .font(.footnote)
                     .padding([.leading, .trailing], 15)
                 
                 Spacer()
-                Picker("Feature Sensitivity", selection: $photogrammetryDelegate.sessionConfiguration.featureSensitivity) {
+                Picker(LocalizedStringKey("configuration.feature.sensitivity"), selection: $photogrammetryDelegate.sessionConfiguration.featureSensitivity) {
                     ForEach(PhotogrammetrySession.Configuration.FeatureSensitivity.allCases, id: \.self) {
                         Text($0).tag(PhotogrammetrySession.Configuration.FeatureSensitivity.init($0))
                     }
                 }
                 .padding([.leading, .trailing], 15)
-                Text("Set to high if the scanned object does not contain a lot of discernible structures, edges or textures")
+                Text(LocalizedStringKey("configuration.feature.sensitivity.describe"))
                     .font(.footnote)
                     .padding([.leading, .trailing], 15)
                 
                 Spacer()
-                Picker("Sample Ordering", selection: $photogrammetryDelegate.sessionConfiguration.sampleOrdering) {
+                Picker(LocalizedStringKey("configuration.sample.ordering"), selection: $photogrammetryDelegate.sessionConfiguration.sampleOrdering) {
                     ForEach(PhotogrammetrySession.Configuration.SampleOrdering.allCases, id: \.self) {
                         Text($0).tag(PhotogrammetrySession.Configuration.SampleOrdering.init($0))
                     }
                 }
                 .padding([.leading, .trailing], 15)
-                Text("Setting to sequential may speed up computation if images are captured in a spatially sequential pattern")
+                Text(LocalizedStringKey("configuration.sample.ordering.describe"))
                     .font(.footnote)
                     .padding([.leading, .trailing], 15)
                 Spacer()
@@ -77,12 +77,12 @@ struct ConfigurationView: View {
             .cornerRadius(8)
             
             HStack {
-                Button("Back") { applicationViewState = ApplicationViewState.onInputView }
+                Button(LocalizedStringKey("configuration.back")) { applicationViewState = ApplicationViewState.onInputView }
                     .keyboardShortcut(.leftArrow, modifiers: .command)
                 
                 Spacer()
                 
-                Button("Generate 3D Model") { applicationViewState = ApplicationViewState.onProcessingView }
+                Button(LocalizedStringKey("configuration.generate.3dmodel")) { applicationViewState = ApplicationViewState.onProcessingView }
                     .keyboardShortcut("g", modifiers: .command)
             }
             .frame(width: 320)

@@ -21,18 +21,5 @@ struct PhotogrammetryApp: App {
         }
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
-        .commands {
-            CommandGroup(replacing: .appInfo) {
-                Button("About Photogrammetry") {
-                    NSApplication.shared.orderFrontStandardAboutPanel(
-                        options: [
-                            NSApplication.AboutPanelOptionKey.credits: NSAttributedString(
-                                string: "Made with Love by Unbinilium, 2022.",
-                                attributes: [NSAttributedString.Key.font: NSFont.boldSystemFont(ofSize: NSFont.smallSystemFontSize)])
-                        ]
-                    )
-                }
-            }
-        }
     }
 }
