@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  Photogrammetry
+
+  Created by Unbinilium on 11/28/22.
+  
+*/
+
+// MARK: - App
+"photogrammetry.button.about" = "About Photogrammetry";
+
+// MARK: - Errors
+"error.hardware.notsupport" = "This Mac does not meet the minimal hardware requirements of Photogrammetry!";
+"error.input.imagefolder.missing" = "Missing input image folder location!";
+"error.output.model.missing" = "Missing output model location!";
+"error.input.folder.open" = "Failed to open input folder!";
+"error.create.session" = "Failed on creating session!";
+"error.access.session" = "Failed on accessing an uninitialized session!";
+"error.complete.request" = "Failed on processing 3D model request, please check the input images and photogrammetry configurations!";
+"error.unexpected.result" = "Encounter an unexpected request result!";
+"error.failed.load.model.entity" = "Failed on loading AR model entity!";
+
+// MARK: - Delegates
+"delegate.generating.3dmodel" = "Generating 3D Model...";
+"delegate.processing.complete" = "Processing is complete";
+"delegate.processing.begin" = "Data ingestion is complete, beginning processing...";
+"delegate.automatic.downsampling" = "Automatic downsampling was applied";
+"delegate.request.cancelled" = "Request of the session request was cancelled";
+
+// MARK: - Input View
+"input.text.drag&drop.hint" = "(A folder with 20~60 images is recommend)";
+"input.text.drag&drop" = "Drag and drop Image Folder";
+"input.text.or" = "or";
+"input.button.open.imagefolder" = "Open Image Folder";
+"input.button.ok" = "OK";
+
+// MARK: - Configuration View
+"configuration.model.detail" = "Model Detail";
+"configuration.model.detail.describe" = "Detail of output model in terms of mesh size and texture size";
+"configuration.object.masking" = "Object Masking";
+"configuration.object.masking.describe" = "Whether RealityKit uses the provided masks to separate the foreground object from the background";
+"configuration.feature.sensitivity" = "Feature Sensitivity";
+"configuration.feature.sensitivity.describe" = "Set to high if the scanned object does not contain a lot of discernible structures, edges or textures";
+"configuration.sample.ordering" = "Sample Ordering";
+"configuration.sample.ordering.describe" = "Setting to sequential may speed up computation if images are captured in a spatially sequential pattern";
+"configuration.back" = "Back";
+"configuration.generate.3dmodel" = "Generate 3D Model";
+
+// MARK: - Processing View
+"processing.button.cancel.processing" = "Cancel Processing";
+
+// MARK: - Export View
+"export.model.entity.missing" = "Model entity is missing for Preview";
+"export.button.process.again" = "Process Again";
+"export.button.export.usdzmodel" = "Export USDZ Model";
