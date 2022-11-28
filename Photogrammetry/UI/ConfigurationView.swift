@@ -77,13 +77,13 @@ struct ConfigurationView: View {
             .cornerRadius(8)
             
             HStack {
-                Button("Back") {
-                    applicationViewState = ApplicationViewState.onInputView
-                }
+                Button("Back") { applicationViewState = ApplicationViewState.onInputView }
+                    .keyboardShortcut(.leftArrow, modifiers: .command)
+                
                 Spacer()
-                Button("Generate 3D Model") {
-                    applicationViewState = ApplicationViewState.onProcessingView
-                }
+                
+                Button("Generate 3D Model") { applicationViewState = ApplicationViewState.onProcessingView }
+                    .keyboardShortcut("g", modifiers: .command)
             }
             .frame(width: 320)
             .fixedSize()

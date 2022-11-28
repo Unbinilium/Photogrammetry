@@ -39,9 +39,14 @@ struct InputView: View {
                     }
                 }
             }
+            .keyboardShortcut("o", modifiers: .command)
         }
         .padding(.all, 20)
-        .alert(openFolderAlertInfo, isPresented: $openFolderAlert) { Button("OK", role: .cancel) { } }
+        .alert(openFolderAlertInfo, isPresented: $openFolderAlert) {
+            Button("OK", role: .cancel) {
+                openFolderAlertInfo.removeAll()
+            }
+        }
     }
 }
 

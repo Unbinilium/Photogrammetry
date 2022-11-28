@@ -70,9 +70,7 @@ struct ProcessingView: View {
         .alert(photogrammetryAlertInfo, isPresented: $photogrammetryAlert) {
             Button("Cancel Processing", role: .cancel) {
                 photogrammetryDelegate.cancelGeneratingModel()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.applicationViewState = .onConfigurationView
-                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { self.applicationViewState = .onConfigurationView }
             }
         }
     }

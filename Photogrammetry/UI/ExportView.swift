@@ -47,8 +47,12 @@ struct ExportView: View {
             
             HStack {
                 Button("Process Again") { applicationViewState = .onInputView }
+                    .keyboardShortcut("r", modifiers: .command)
+                
                 Spacer()
+                
                 Button("Export USDZ Model") { photogrammetryDelegate.openExportModelPanel { _ in } }
+                    .keyboardShortcut("e", modifiers: .command)
             }
             .frame(width: 320)
             .fixedSize()
