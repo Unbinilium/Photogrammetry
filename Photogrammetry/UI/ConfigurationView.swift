@@ -30,7 +30,7 @@ struct ConfigurationView: View {
             }
             .frame(width: 320)
             .fixedSize()
-            .background(Color.black.opacity(0.1))
+            .background(Color.gray.opacity(0.1))
             .cornerRadius(8)
             
             VStack (alignment: .leading, spacing: 5) {
@@ -73,7 +73,7 @@ struct ConfigurationView: View {
             .pickerStyle(.segmented)
             .frame(width: 320)
             .fixedSize()
-            .background(Color.black.opacity(0.1))
+            .background(Color.gray.opacity(0.1))
             .cornerRadius(8)
             
             HStack {

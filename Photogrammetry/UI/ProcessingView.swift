@@ -66,6 +66,7 @@ struct ProcessingView: View {
                 }
             }
         }
+        .onDisappear { photogrammetryAlertInfo.removeAll() }
         .alert(photogrammetryAlertInfo, isPresented: $photogrammetryAlert) {
             Button("Cancel Processing", role: .cancel) {
                 photogrammetryDelegate.cancelGeneratingModel()

@@ -20,7 +20,7 @@ struct InputView: View {
                 Text("(A folder with 20~60 images is recommend)").font(.footnote)
             }
             .frame(width: 320, height: 280)
-            .background(Color.black.opacity(0.1))
+            .background(Color.gray.opacity(0.1))
             .cornerRadius(8)
             .onDrop(of: ["public.file-url"], delegate: OnDropDelegate(
                 applicationViewState: $applicationViewState,

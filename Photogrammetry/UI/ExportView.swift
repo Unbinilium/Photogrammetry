@@ -22,11 +22,11 @@ struct ExportView: View {
                 else { Text(arContainerViewInfo) }
             }
             .frame(width: 320, height: 320)
-            .background(Color.black.opacity(0.1))
+            .background(Color.gray.opacity(0.1))
             .cornerRadius(8)
             .onAppear {
                 guard let modelEntityUrl = photogrammetryDelegate.outputModelUrl else {
-                    arContainerViewInfo = "Missing model entity"
+                    arContainerViewInfo = "Model entity is missing for Preview"
                     return
                 }
                 arContainerViewDelegate.loadModelEntity(modelEntityUrl: modelEntityUrl) { (result) in
@@ -39,6 +39,7 @@ struct ExportView: View {
                 }
             }
             .onDisappear {
+                arContainerViewInfo.removeAll()
                 arContainerViewLoaded = false
                 arContainerViewDelegate.modelEntitySpin = false
                 photogrammetryDelegate.removeOutputModel()
